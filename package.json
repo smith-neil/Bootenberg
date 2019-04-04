@@ -1,0 +1,12 @@
+{
+  "name": "bootenberg",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Neil Smith <smith.neil.h@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {
+  }
+}

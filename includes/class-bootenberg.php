@@ -15,10 +15,20 @@ class Bootenberg {
 		$this->assets_dir = trailingslashit( $this->dir ) . 'assets';
 		$this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/', $this->file ) ) );
 
+        add_action( 'init', array( $this, 'register_blocks' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
+    }
+
+    public function register_blocks() {
+        $blocks_url = plugins_url( 'assets/blocks.bundle.min.js', $this->file );
+        wp_register_script( 'bootenberg-blocks', $blocks_url, array( 'wp-blocks', 'wp-element', 'wp-editor' ) );
+
+        register_block_type( 'bootenberg/alert', array(
+            'editor_script' => 'bootenberg-blocks'
+        ) );
     }
 
     public function enqueue_styles() {
@@ -31,7 +41,7 @@ class Bootenberg {
     public function enqueue_scripts() {
         $bootstrap_url = plugins_url( 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', $this->file );
         
-        wp_register_script( 'bootstrap', $bootstrap_url, null, '4.3.1', true );
+        wp_register_script( 'bootstrap', $bootstrap_url, array( 'jquery' ), '4.3.1', true );
         wp_enqueue_script( 'bootstrap' );
     }
 

@@ -2,6 +2,7 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
 const { PanelBody, PanelRow, SelectControl, ToggleControl } = wp.components;
+const { __ } = wp.i18n;
 
 import classNames from 'classnames';
 
@@ -51,35 +52,35 @@ registerBlockType( 'bootenberg/alert', {
         return (
             <Fragment>
                 <InspectorControls>
-                    <PanelBody title="Alert Settings">
+                    <PanelBody title={ __( 'Alert Settings', 'bootenberg' ) }>
                         <PanelRow>
                             <SelectControl
                                 label="Type"
                                 value={type}
                                 options={[
-                                    { label: "Primary", value: "primary" },
-                                    { label: "Secondary", value: "secondary" },
-                                    { label: "Success", value: "success" },
-                                    { label: "Danger", value: "danger" },
-                                    { label: "Warning", value: "warning" },
-                                    { label: "Info", value: "info" },
-                                    { label: "Light", value: "light" },
-                                    { label: "Dark", value: "dark" }
+                                    { label: __( 'Primary', 'bootenberg' ), value: __( "primary", 'bootenberg' ) },
+                                    { label: __( 'Secondary', 'bootenberg' ), value: __( "secondary", 'bootenberg' ) },
+                                    { label: __( 'Success', 'bootenberg' ), value: __( "success", 'bootenberg' ) },
+                                    { label: __( 'Danger', 'bootenberg' ), value: __( "danger", 'bootenberg' ) },
+                                    { label: __( 'Warning', 'bootenberg' ), value: __( "warning", 'bootenberg' ) },
+                                    { label: __( 'Info', 'bootenberg' ), value: __( "info", 'bootenberg' ) },
+                                    { label: __( 'Light', 'bootenberg' ), value: __( "light", 'bootenberg' ) },
+                                    { label: __( 'Dark', 'bootenberg' ), value: __( "dark", 'bootenberg' ) }
                                 ]}
                                 onChange={updateType}
                             />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label="Dismissible"
-                                help="Note: The dismiss button is disabled in the editor."
+                                label={ __( 'Dismissible', 'bootenberg' ) }
+                                help={ __( 'Note: The dismiss button is disabled in the editor.', 'bootenberg' ) }
                                 checked={!!dismissible}
                                 onChange={updatedismissible}
                             />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label="Fade"
+                                label={ __( 'Fade', 'bootenberg' ) }
                                 checked={!!fade}
                                 onChange={updateFade}
                             />

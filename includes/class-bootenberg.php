@@ -23,6 +23,8 @@ class Bootenberg {
         add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_styles' ) );
 
         add_filter( 'block_categories', array( $this, 'block_categories' ), 10, 2 );
+
+        //remove_filter( 'wp_editor_settings', 'gutenberg_disable_editor_settings_wpautop' );
     }
 
     public function register_blocks() {
@@ -38,9 +40,7 @@ class Bootenberg {
         $bootstrap_url = plugins_url( 'node_modules/bootstrap/dist/css/bootstrap.min.css', $this->file );
 
         wp_register_style( 'bootstrap', $bootstrap_url, null, '4.3.1', 'all' );
-        wp_enqueue_style( 'bootstrap' );
-
-        
+        wp_enqueue_style( 'bootstrap' );        
     }
 
     public function enqueue_scripts() {

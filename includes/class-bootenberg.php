@@ -20,6 +20,8 @@ class Bootenberg {
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
+
+        add_filter( 'block_categories', array( $this, 'block_categories' ), 10, 2 );
     }
 
     public function register_blocks() {
@@ -43,6 +45,15 @@ class Bootenberg {
         
         wp_register_script( 'bootstrap', $bootstrap_url, array( 'jquery' ), '4.3.1', true );
         wp_enqueue_script( 'bootstrap' );
+    }
+
+    public function block_categories( $categories, $post ) {
+        return array_merge( $categories, array(
+            array(
+                'slug' => 'bootstrap-components',
+                'title' => __( 'Bootstrap Components', 'bootenberg' )
+            )
+        ) );
     }
 
 

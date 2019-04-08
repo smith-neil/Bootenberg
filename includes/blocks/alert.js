@@ -16,7 +16,7 @@ import classNames from 'classnames';
 registerBlockType( 'bootenberg/alert', {
     title: 'Alert',
     icon: 'universal-access-alt',
-    category: 'layout',
+    category: 'bootstrap-components',
     attributes: {
 		type: {
 			type: 'string',

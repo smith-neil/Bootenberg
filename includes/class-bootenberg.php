@@ -20,6 +20,7 @@ class Bootenberg {
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ), 10 );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ), 10 );
+        add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_styles' ) );
 
         add_filter( 'block_categories', array( $this, 'block_categories' ), 10, 2 );
     }
@@ -38,6 +39,8 @@ class Bootenberg {
 
         wp_register_style( 'bootstrap', $bootstrap_url, null, '4.3.1', 'all' );
         wp_enqueue_style( 'bootstrap' );
+
+        
     }
 
     public function enqueue_scripts() {
@@ -45,6 +48,13 @@ class Bootenberg {
         
         wp_register_script( 'bootstrap', $bootstrap_url, array( 'jquery' ), '4.3.1', true );
         wp_enqueue_script( 'bootstrap' );
+    }
+
+    public function enqueue_block_editor_styles() {
+        $bootenberg_url = plugins_url( 'assets/style-editor.css', $this->file );
+
+        wp_register_style( 'bootenberg', $bootenberg_url, null, '0.0.1', 'all' );
+        wp_enqueue_style( 'bootenberg' );
     }
 
     public function block_categories( $categories, $post ) {

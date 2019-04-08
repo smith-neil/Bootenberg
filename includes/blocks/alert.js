@@ -4,14 +4,14 @@ const { Fragment } = wp.element;
 const { PanelBody, PanelRow, SelectControl, ToggleControl } = wp.components;
 const { __ } = wp.i18n;
 
+import "./alert.scss";
+
 import classNames from 'classnames';
 
 // TODO:
 // 1. InnerBlocks renders a paragraph by default. This screws up the frontend because
 //    paragraphs have bottom margin. It doesn't affect the backend because .editor-rich-text__tinymce
 //    removes margin.
-// 2. .editor-block-list__block-edit adds top and bottom margin to the list of blocks. 
-//    This should be disabled as it does not do the same on the frontend.
 
 registerBlockType( 'bootenberg/alert', {
     title: 'Alert',

@@ -24,7 +24,7 @@ class Bootenberg {
 
     public function register_blocks() {
         $blocks_url = plugins_url( 'assets/blocks.bundle.min.js', $this->file );
-        wp_register_script( 'bootenberg-blocks', $blocks_url, array( 'wp-blocks', 'wp-element', 'wp-editor' ) );
+        wp_register_script( 'bootenberg-blocks', $blocks_url, array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-i18n' ) );
 
         register_block_type( 'bootenberg/alert', array(
             'editor_script' => 'bootenberg-blocks'

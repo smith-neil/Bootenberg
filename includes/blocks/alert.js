@@ -52,35 +52,35 @@ registerBlockType( 'bootenberg/alert', {
         return (
             <Fragment>
                 <InspectorControls>
-                    <PanelBody title={ __( 'Alert Settings', 'bootenberg' ) }>
+                    <PanelBody title={ __( "Alert Settings", "bootenberg" ) }>
                         <PanelRow>
                             <SelectControl
-                                label="Type"
+                                label={ __( "Type", "bootenberg" ) }
                                 value={type}
                                 options={[
-                                    { label: __( 'Primary', 'bootenberg' ), value: __( "primary", 'bootenberg' ) },
-                                    { label: __( 'Secondary', 'bootenberg' ), value: __( "secondary", 'bootenberg' ) },
-                                    { label: __( 'Success', 'bootenberg' ), value: __( "success", 'bootenberg' ) },
-                                    { label: __( 'Danger', 'bootenberg' ), value: __( "danger", 'bootenberg' ) },
-                                    { label: __( 'Warning', 'bootenberg' ), value: __( "warning", 'bootenberg' ) },
-                                    { label: __( 'Info', 'bootenberg' ), value: __( "info", 'bootenberg' ) },
-                                    { label: __( 'Light', 'bootenberg' ), value: __( "light", 'bootenberg' ) },
-                                    { label: __( 'Dark', 'bootenberg' ), value: __( "dark", 'bootenberg' ) }
+                                    { label: __( "Primary", "bootenberg" ), value: __( "primary", "bootenberg" ) },
+                                    { label: __( "Secondary", "bootenberg" ), value: __( "secondary", "bootenberg" ) },
+                                    { label: __( "Success", "bootenberg" ), value: __( "success", "bootenberg" ) },
+                                    { label: __( "Danger", "bootenberg" ), value: __( "danger", "bootenberg" ) },
+                                    { label: __( "Warning", "bootenberg" ), value: __( "warning", "bootenberg" ) },
+                                    { label: __( "Info", "bootenberg" ), value: __( "info", "bootenberg" ) },
+                                    { label: __( "Light", "bootenberg" ), value: __( "light", "bootenberg" ) },
+                                    { label: __( "Dark", "bootenberg" ), value: __( "dark", "bootenberg" ) }
                                 ]}
                                 onChange={updateType}
                             />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __( 'Dismissible', 'bootenberg' ) }
-                                help={ __( 'Note: The dismiss button is disabled in the editor.', 'bootenberg' ) }
+                                label={ __( "Dismissible", "bootenberg" ) }
+                                help={ __( "Note: The dismiss button is disabled in the editor.", "bootenberg" ) }
                                 checked={!!dismissible}
                                 onChange={updatedismissible}
                             />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __( 'Fade', 'bootenberg' ) }
+                                label={ __( "Fade", "bootenberg" ) }
                                 checked={!!fade}
                                 onChange={updateFade}
                             />

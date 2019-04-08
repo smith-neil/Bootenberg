@@ -9,7 +9,7 @@ module.exports = {
 	},
     entry: {
         'blocks.bundle.min': [
-            path.resolve(__dirname, 'includes/blocks/alert.js')
+            path.resolve(__dirname, 'includes/blocks/alert/index.js')
         ]
     },
     module: {
